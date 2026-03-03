@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seren — Be the Answer | AI Visibility Agency</title>
+<meta name="description" content="Seren helps UK and Kenyan brands show up when people ask AI for recommendations. GEO, AEO and SEO for ChatGPT, Google AI and Gemini. Free AI audit — results in 48 hours.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Seren — Be the Answer">
+<meta property="og:description" content="When someone asks AI to recommend you — do you appear? We measure it, fix it, and prove it monthly.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Seren","url":"https://seren.agency","description":"Seren helps brands in the UK and Kenya improve visibility in AI-generated answers through GEO, AEO and SEO.","areaServed":["GB","KE"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"AI Visibility Audit","provider":{"@type":"Organization","name":"Seren"},"areaServed":["GB","KE"],"serviceType":"GEO / AEO / SEO","description":"Controlled prompt testing across ChatGPT, Gemini and Perplexity via API, with Share of Voice reporting, citation mapping and a 30-day optimisation plan."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is GEO — Generative Engine Optimisation?","acceptedAnswer":{"@type":"Answer","text":"GEO is the practice of optimising a brand's presence inside AI-generated answers from models like ChatGPT, Gemini and Claude. It involves structured content, entity strengthening and citation building so AI models are more likely to mention and recommend your brand."}},{"@type":"Question","name":"How do you measure AI visibility?","acceptedAnswer":{"@type":"Answer","text":"We run a fixed set of 20–30 buyer prompts through the OpenAI, Gemini and Perplexity APIs in a controlled environment. We record whether your brand is mentioned, cited, or recommended — and track the delta month over month."}},{"@type":"Question","name":"Does Seren work for businesses in Kenya?","acceptedAnswer":{"@type":"Answer","text":"Yes. Seren serves brands in both the UK and Kenya. AI search adoption is growing rapidly across East Africa and Kenyan pricing tiers are available."}}]}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0c0c0e;--paper:#f7f4ef;--cream:#efe9df;--mid:#b0a898;--accent:#d4550f;--green:#2ecc71;--white:#ffffff}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;transition:background .3s,backdrop-filter .3s}
+nav.scrolled{background:rgba(247,244,239,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,0,0,.07)}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none;z-index:101}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.5;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{background:var(--ink)!important;color:var(--white)!important;opacity:1!important;padding:10px 22px!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--accent)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:101;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+nav.scrolled .hamburger span{background:var(--ink)}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--paper);z-index:99;flex-direction:column;justify-content:center;align-items:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--ink);text-decoration:none;opacity:.7;transition:opacity .2s,color .2s}
+.mobile-menu a:hover{opacity:1;color:var(--accent)}
+.mobile-menu .m-cta{background:var(--accent);color:var(--white)!important;opacity:1!important;padding:16px 40px;font-size:16px!important;font-family:'DM Sans',sans-serif!important;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:var(--ink);z-index:0}
+.stars{position:absolute;inset:0;z-index:1}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite var(--delay);opacity:0}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:var(--op);transform:scale(1)}}
+.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:80px 80px}
+.hero-content{position:relative;z-index:2;max-width:1100px}
+.hero-pills{display:flex;gap:10px;margin-bottom:24px;animation:fadeUp 1s ease .1s both}
+.pill{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:5px 14px;border:1px solid var(--accent);color:var(--accent)}
+.hero-eye{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;font-weight:500;animation:fadeUp 1s ease .2s both}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(48px,7.5vw,108px);font-weight:900;line-height:.95;color:var(--white);margin-bottom:40px;animation:fadeUp 1s ease .4s both}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:clamp(15px,1.8vw,19px);color:rgba(255,255,255,.5);max-width:520px;margin-bottom:48px;font-weight:300;line-height:1.8;animation:fadeUp 1s ease .6s both}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 1s ease .8s both}
+.btn-primary{background:var(--accent);color:var(--white);padding:16px 36px;font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s;display:inline-block;font-family:'DM Sans',sans-serif}
+.btn-primary:hover{background:#b8440a;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.55);padding:16px 36px;font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);cursor:pointer;transition:all .2s;display:inline-block}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6);color:white}
+.hero-scroll{position:absolute;bottom:40px;right:48px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 1s ease 1.2s both}
+.scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.35));animation:sp 2.2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+.scroll-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.25);writing-mode:vertical-rl}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* TICKER */
+.ticker{background:var(--accent);padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:tick 30s linear infinite}
+.ticker-item{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:white;padding:0 36px;opacity:.88}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:120px 48px}
+.slabel{font-size:10px;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+
+/* PROBLEM */
+.problem{background:var(--paper);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.problem-left h2{font-family:'Playfair Display',serif;font-size:clamp(34px,3.8vw,56px);font-weight:700;line-height:1.15;margin-bottom:28px}
+.problem-left h2 em{font-style:italic;color:var(--accent)}
+.problem-left p{font-size:16px;color:#555;line-height:1.85;font-weight:300;margin-bottom:14px}
+.problem-right{display:flex;flex-direction:column;gap:2px}
+.bubble{background:var(--cream);border:1px solid rgba(0,0,0,.07);padding:20px 24px;opacity:0;transform:translateX(36px);transition:opacity .6s ease,transform .6s ease}
+.bubble.visible{opacity:1;transform:translateX(0)}
+.bubble:nth-child(2){transition-delay:.15s}
+.bubble:nth-child(3){transition-delay:.3s;background:var(--ink)}
+.blabel{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-bottom:8px}
+.bubble:nth-child(3) .blabel{color:rgba(255,255,255,.3)}
+.btext{font-size:14px;line-height:1.65;color:var(--ink)}
+.bubble:nth-child(3) .btext{color:rgba(255,255,255,.8)}
+.btext .hit{color:var(--accent);font-weight:500}
+.btext .win{color:var(--green);font-weight:600}
+.btext .miss{color:var(--mid);text-decoration:line-through}
+
+/* HOW */
+.how{background:var(--ink);color:var(--white)}
+.how h2{font-family:'Playfair Display',serif;font-size:clamp(34px,3.8vw,54px);font-weight:700;line-height:1.15;margin-bottom:64px;max-width:560px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.step{background:#141414;padding:40px 36px;border-top:2px solid transparent;transition:border-color .3s}
+.step:hover{border-color:var(--accent)}
+.step-n{font-family:'Playfair Display',serif;font-size:60px;font-weight:900;color:rgba(255,255,255,.05);line-height:1;margin-bottom:20px}
+.step h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:16px;color:var(--white)}
+.step p{font-size:14px;color:rgba(255,255,255,.42);line-height:1.85;font-weight:300}
+.stag{display:inline-block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;margin-bottom:16px;font-weight:500}
+.t1{background:rgba(26,58,92,.5);color:#7eb8e8}
+.t2{background:rgba(212,85,15,.3);color:#f08050}
+.t3{background:rgba(46,140,80,.3);color:#6ecf8a}
+
+/* AUDIT */
+.audit{background:var(--cream)}
+.audit h2{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,50px);font-weight:700;margin-bottom:12px}
+.audit-sub{font-size:17px;color:#777;margin-bottom:56px;font-weight:300}
+.deliverables{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.dlv{background:var(--white);padding:36px 28px;border-bottom:3px solid transparent;transition:border-color .25s,background .25s}
+.dlv:hover{border-color:var(--accent);background:var(--paper)}
+.dlv-n{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(0,0,0,.06);line-height:1;margin-bottom:16px}
+.dlv h4{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:10px}
+.dlv p{font-size:13px;color:#777;line-height:1.7;font-weight:300}
+
+/* SERVICES */
+.services{background:var(--paper)}
+.services h2{font-family:'Playfair Display',serif;font-size:clamp(34px,3.8vw,54px);font-weight:700;line-height:1.15;margin-bottom:64px;max-width:640px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.sc{background:var(--cream);padding:48px 36px;border-bottom:3px solid transparent;transition:border-color .25s,background .25s}
+.sc:hover{background:var(--white);border-color:var(--accent)}
+.sc-icon{font-size:30px;margin-bottom:24px}
+.sc h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;margin-bottom:6px}
+.sc-abbr{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:500}
+.sc p{font-size:14px;color:#666;line-height:1.85;font-weight:300;margin-bottom:24px}
+.sc-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.sc-list li{font-size:13px;color:#555;padding-left:18px;position:relative}
+.sc-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px}
+
+/* MARKETS */
+.markets{background:var(--ink);color:var(--white)}
+.markets h2{font-family:'Playfair Display',serif;font-size:clamp(34px,3.8vw,54px);font-weight:700;line-height:1.15;margin-bottom:64px}
+.markets-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.mc{background:#141414;padding:48px 40px;border-left:3px solid transparent;transition:border-color .25s}
+.mc:hover{border-color:var(--accent)}
+.mc-flag{font-size:36px;margin-bottom:20px}
+.mc h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:8px}
+.mc-tag{font-size:13px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;font-weight:500}
+.mc p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.85;font-weight:300;margin-bottom:24px}
+.ind-tags{display:flex;flex-wrap:wrap;gap:8px}
+.ind{font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45);font-weight:500}
+.mc-price{margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);font-size:13px;color:rgba(255,255,255,.3)}
+.mc-price strong{color:var(--accent);font-size:15px}
+
+/* PRICING */
+.pricing{background:var(--paper)}
+.pricing h2{font-family:'Playfair Display',serif;font-size:clamp(34px,3.8vw,54px);font-weight:700;margin-bottom:12px}
+.pricing-sub{font-size:17px;color:#777;margin-bottom:8px;font-weight:300}
+.pricing-note{font-size:13px;color:#999;margin-bottom:56px;font-style:italic}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.pc{background:var(--cream);padding:48px 36px;position:relative}
+.pc.featured{background:var(--ink);color:var(--white)}
+.pc-badge{position:absolute;top:-1px;left:36px;background:var(--accent);color:white;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:6px 16px;font-weight:500}
+.pc-tier{font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);margin-bottom:14px}
+.pc.featured .pc-tier{color:rgba(255,255,255,.35)}
+.pc-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:6px}
+.pc-price{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:1;color:var(--accent)}
+.pc-period{font-size:13px;color:var(--mid);margin-bottom:6px}
+.pc.featured .pc-period{color:rgba(255,255,255,.35)}
+.pc-setup{font-size:12px;color:#999;margin-bottom:28px;font-style:italic}
+.pc.featured .pc-setup{color:rgba(255,255,255,.3)}
+.pc-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:36px}
+.pc-feats li{font-size:14px;color:#555;padding-left:20px;position:relative;font-weight:300}
+.pc.featured .pc-feats li{color:rgba(255,255,255,.6)}
+.pc-feats li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-weight:700;font-size:12px}
+.btn-dk{display:block;text-align:center;background:var(--ink);color:white;padding:14px 24px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s;font-family:'DM Sans',sans-serif}
+.btn-dk:hover{background:var(--accent)}
+.btn-ac{display:block;text-align:center;background:var(--accent);color:white;padding:14px 24px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s;font-family:'DM Sans',sans-serif}
+.btn-ac:hover{background:#b8440a}
+.btn-ol{display:block;text-align:center;background:transparent;color:var(--ink);padding:14px 24px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(0,0,0,.2);transition:all .2s;font-family:'DM Sans',sans-serif}
+.btn-ol:hover{border-color:var(--ink)}
+
+/* FAQ */
+.faq{background:var(--cream)}
+.faq h2{font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,50px);font-weight:700;margin-bottom:48px;max-width:600px}
+.faq-list{display:flex;flex-direction:column;gap:2px;max-width:760px}
+.faq-item{background:var(--white)}
+.faq-q{padding:22px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:500;transition:color .2s;user-select:none}
+.faq-q:hover{color:var(--accent)}
+.faq-arr{font-size:20px;color:var(--mid);flex-shrink:0;transition:transform .25s}
+.faq-item.open .faq-arr{transform:rotate(90deg);color:var(--accent)}
+.faq-a{display:none;padding:0 28px 24px;font-size:15px;color:#666;line-height:1.8;font-weight:300;border-top:1px solid rgba(0,0,0,.06);padding-top:20px}
+.faq-item.open .faq-a{display:block}
+
+/* CTA */
+.cta-section{background:var(--ink);text-align:center;padding:140px 48px;position:relative;overflow:hidden}
+.cta-section::before{content:'SEREN';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:260px;font-weight:900;color:rgba(255,255,255,.018);pointer-events:none;letter-spacing:-8px;white-space:nowrap}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(38px,5.5vw,76px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px}
+.cta-section h2 em{font-style:italic;color:var(--accent)}
+.cta-section>p{font-size:17px;color:rgba(255,255,255,.4);margin-bottom:48px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:0;max-width:800px;margin:0 auto 16px}
+.cta-form input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-right:none;color:white;padding:16px 20px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s,background .2s;min-width:0}
+.cta-form input::placeholder{color:rgba(255,255,255,.28)}
+.cta-form input:focus{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+.cta-form button{background:var(--accent);color:white;border:none;padding:16px 28px;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;white-space:nowrap}
+.cta-form button:hover:not(:disabled){background:#b8440a}
+.cta-form button:disabled{cursor:default}
+.cta-note{font-size:12px;color:rgba(255,255,255,.22)}
+
+/* FOOTER */
+footer{background:#070709;padding:48px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.f-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.f-logo span{color:var(--accent)}
+.f-tag{font-size:13px;color:rgba(255,255,255,.22);font-style:italic}
+.f-links{display:flex;gap:28px;list-style:none}
+.f-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:rgba(255,255,255,.75)}
+.f-copy{font-size:12px;color:rgba(255,255,255,.16);width:100%;padding-top:24px;border-top:1px solid rgba(255,255,255,.05)}
+
+/* RESPONSIVE */
+@media(max-width:900px){.deliverables{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:72px 24px}
+  .hero{padding:0 24px 64px}
+  .hero-scroll{display:none}
+  .problem{grid-template-columns:1fr;gap:48px}
+  .steps,.services-grid,.markets-grid,.pricing-grid{grid-template-columns:1fr}
+  .deliverables{grid-template-columns:1fr 1fr}
+  .cta-form{grid-template-columns:1fr;max-width:420px}
+  .cta-form input{border-right:1px solid rgba(255,255,255,.12);border-bottom:none}
+  .cta-form button{border-top:none}
+  footer{padding:32px 24px;flex-direction:column;align-items:flex-start}
+  .f-links{flex-wrap:wrap;gap:16px}
+}
+@media(max-width:480px){.deliverables{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how" onclick="closeMenu()">How it works</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#markets" onclick="closeMenu()">Markets</a>
+  <a href="#contact" class="m-cta" onclick="closeMenu()">Get free audit</a>
+</div>
+
+<nav id="nav">
+  <a href="#" class="logo">Ser<span>.</span>en</a>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#contact" class="nav-cta">Get free audit</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="stars" id="stars"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-pills">
+      <span class="pill">🇬🇧 UK</span>
+      <span class="pill">🇰🇪 Kenya</span>
+    </div>
+    <div class="hero-eye">// AI Visibility Agency</div>
+    <h1>When someone asks<br>AI to recommend<br>you — <em>do you appear?</em></h1>
+    <p class="hero-sub">Seren helps brands in the UK and Kenya show up inside ChatGPT, Google AI, and Gemini — with measurable monthly tracking.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get a free AI audit</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">GEO — Generative Engine Optimisation</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">AEO — Answer Engine Optimisation</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">SEO — Search Engine Optimisation</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">Serving UK &amp; Kenya</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">Be the answer, not the afterthought</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">GEO — Generative Engine Optimisation</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">AEO — Answer Engine Optimisation</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">SEO — Search Engine Optimisation</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">Serving UK &amp; Kenya</span><span class="ticker-item">✦</span>
+    <span class="ticker-item">Be the answer, not the afterthought</span><span class="ticker-item">✦</span>
+  </div>
+</div>
+
+<section class="problem" id="problem">
+  <div class="problem-left">
+    <div class="slabel">// The problem</div>
+    <h2>Your customers are asking AI.<br><em>Are you in the answer?</em></h2>
+    <p>Google you could track. AI? Most businesses have no idea whether they appear — or what their competitors are saying about them.</p>
+    <p>We run the questions your customers are typing into ChatGPT and Google AI. We show you exactly where you stand — then we improve your likelihood of appearing.</p>
+  </div>
+  <div class="problem-right" id="bubbles">
+    <div class="bubble">
+      <div class="blabel">ChatGPT — "best skincare for dry skin UK"</div>
+      <div class="btext">"I'd recommend <span class="hit">CeraVe</span> or <span class="hit">La Roche-Posay</span>. Both are widely available in the UK and dermatologist-approved…" <span class="miss">Your brand: not mentioned.</span></div>
+    </div>
+    <div class="bubble">
+      <div class="blabel">Gemini — "best safari company in Kenya"</div>
+      <div class="btext">"Top operators include <span class="hit">Asilia Africa</span> and <span class="hit">Gamewatchers Safaris</span>…" <span class="miss">You're invisible to every tourist planning a trip.</span></div>
+    </div>
+    <div class="bubble">
+      <div class="blabel">After 60 days with Seren</div>
+      <div class="btext">"For dry skin on a budget, <span class="win">your brand</span> is a standout option — widely recommended and dermatologist-tested across the UK." ✓</div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="slabel">// How it works</div>
+  <h2>Three steps. One goal.<br>You in the answer.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div class="stag t1">Measure</div>
+      <h3>We run your prompts</h3>
+      <p>We define 20–30 questions your real customers ask AI. We run them via the OpenAI, Gemini and Perplexity APIs in a controlled environment. We record everything. That's your baseline.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div class="stag t2">Optimise</div>
+      <h3>We fix what's missing</h3>
+      <p>We rewrite your content into answer-first blocks, implement schema markup, strengthen your brand entity, and get you cited in the sources AI models trust most.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div class="stag t3">Report</div>
+      <h3>We prove it monthly</h3>
+      <p>Every month: a plain-English report. "Last month 3/10 prompts mentioned you. This month: 7/10." You see the delta, what changed, and what's next.</p>
+    </div>
+  </div>
+</section>
+
+<section class="audit" id="audit">
+  <div class="slabel">// What you get</div>
+  <h2>Your free audit includes five things.</h2>
+  <p class="audit-sub">Delivered within 48 hours. Your actual numbers — no fluff.</p>
+  <div class="deliverables">
+    <div class="dlv"><div class="dlv-n">01</div><h4>20–30 Prompts Tested</h4><p>Real buyer questions run across ChatGPT, Gemini and Perplexity via API. Consistent, reproducible.</p></div>
+    <div class="dlv"><div class="dlv-n">02</div><h4>Share of Voice Score</h4><p>What % of AI answers mention you vs. your top 3 competitors. Your starting number.</p></div>
+    <div class="dlv"><div class="dlv-n">03</div><h4>Citation Map</h4><p>Which sources AI cites instead of you — and what it would take to displace them.</p></div>
+    <div class="dlv"><div class="dlv-n">04</div><h4>Sentiment Analysis</h4><p>When you do appear — is the language positive, neutral or negative?</p></div>
+    <div class="dlv"><div class="dlv-n">05</div><h4>30-Day Action Plan</h4><p>The three highest-impact changes, ranked by expected visibility gain.</p></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="slabel">// What we do</div>
+  <h2>Three disciplines.<br>One integrated service.</h2>
+  <div class="services-grid">
+    <div class="sc">
+      <div class="sc-icon">🤖</div>
+      <h3>GEO</h3>
+      <div class="sc-abbr">Generative Engine Optimisation</div>
+      <p>We increase your brand's likelihood of appearing inside LLM-generated answers — the responses ChatGPT, Claude, and Gemini give your potential customers every day.</p>
+      <ul class="sc-list">
+        <li>API-based controlled prompt testing</li>
+        <li>Share of Voice vs. competitors</li>
+        <li>Brand entity strengthening</li>
+        <li>Citation building in AI-trusted sources</li>
+        <li>Monthly GEO delta report</li>
+      </ul>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">✨</div>
+      <h3>AEO</h3>
+      <div class="sc-abbr">Answer Engine Optimisation</div>
+      <p>We get your brand into Google's AI Overviews, featured snippets, and People Also Ask boxes — the zero-click answers seen before any website is visited.</p>
+      <ul class="sc-list">
+        <li>Answer-first content blocks (40–60 words)</li>
+        <li>FAQPage and HowTo schema markup</li>
+        <li>Question-based header structure</li>
+        <li>Featured snippet tracking</li>
+        <li>Google AI Overview monitoring</li>
+      </ul>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">📈</div>
+      <h3>SEO</h3>
+      <div class="sc-abbr">Search Engine Optimisation</div>
+      <p>The technical foundation everything else builds on. A site that search engines cannot crawl or trust will not be cited by AI models either.</p>
+      <ul class="sc-list">
+        <li>Technical SEO audit and fixes</li>
+        <li>Keyword ranking tracking</li>
+        <li>On-page optimisation</li>
+        <li>Google Search Console reporting</li>
+        <li>Authority and backlink analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="markets" id="markets">
+  <div class="slabel">// Where we work</div>
+  <h2>Two markets. Same methodology.</h2>
+  <div class="markets-grid">
+    <div class="mc">
+      <div class="mc-flag">🇬🇧</div>
+      <h3>United Kingdom</h3>
+      <div class="mc-tag">London-based. UK-wide.</div>
+      <p>The UK market is moving fast. Most agencies are scrambling to understand GEO. Most brands have zero AI visibility data. That window won't stay open for long.</p>
+      <div class="ind-tags">
+        <span class="ind">E-commerce</span><span class="ind">Professional services</span><span class="ind">Hospitality</span><span class="ind">Health &amp; wellness</span><span class="ind">Influencers</span><span class="ind">Agencies</span>
+      </div>
+      <div class="mc-price">From <strong>£399/month</strong> + £499 setup</div>
+    </div>
+    <div class="mc">
+      <div class="mc-flag">🇰🇪</div>
+      <h3>Kenya</h3>
+      <div class="mc-tag">Nairobi &amp; East Africa.</div>
+      <p>Kenya has one of Africa's strongest digital economies — and virtually nobody doing GEO yet. Brands investing now will own their AI visibility for years. The gap is enormous.</p>
+      <div class="ind-tags">
+        <span class="ind">Safari &amp; tourism</span><span class="ind">Fintech &amp; banking</span><span class="ind">FMCG brands</span><span class="ind">Kenyan creators</span><span class="ind">Healthcare</span><span class="ind">Education</span>
+      </div>
+      <div class="mc-price">From <strong>KES 30,000/month</strong> + KES 50,000 setup</div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="slabel">// Transparent pricing</div>
+  <h2>Clear fees. Real deliverables.</h2>
+  <p class="pricing-sub">No retainers that go nowhere. No vague "strategy work."</p>
+  <p class="pricing-note">All plans include a one-time setup fee for the initial audit. Growth requires a 3-month minimum to show meaningful results.</p>
+  <div class="pricing-grid">
+    <div class="pc">
+      <div class="pc-tier">Starter</div>
+      <div class="pc-name">Local</div>
+      <div class="pc-price">£399</div>
+      <div class="pc-period">per month</div>
+      <div class="pc-setup">+ £499 one-time setup</div>
+      <ul class="pc-feats">
+        <li>Full AI visibility audit (month 1)</li>
+        <li>10-prompt GEO test set</li>
+        <li>Google AI Overview check</li>
+        <li>Basic schema implementation</li>
+        <li>Share of Voice baseline</li>
+        <li>Monthly report</li>
+      </ul>
+      <a href="#contact" class="btn-ol">Get started</a>
+    </div>
+    <div class="pc featured">
+      <div class="pc-badge">Most popular</div>
+      <div class="pc-tier">Growth</div>
+      <div class="pc-name">Brand</div>
+      <div class="pc-price">£999</div>
+      <div class="pc-period">per month · 3-month minimum</div>
+      <div class="pc-setup">+ £999 one-time setup</div>
+      <ul class="pc-feats">
+        <li>Full GEO, AEO + SEO service</li>
+        <li>30-prompt test set across 4 LLMs</li>
+        <li>Content rewriting (4 pages/mo)</li>
+        <li>Schema + entity work</li>
+        <li>Citation and PR outreach</li>
+        <li>Competitor Share of Voice report</li>
+        <li>Monthly strategy call</li>
+      </ul>
+      <a href="#contact" class="btn-ac">Get started</a>
+    </div>
+    <div class="pc">
+      <div class="pc-tier">Enterprise</div>
+      <div class="pc-name">Agency</div>
+      <div class="pc-price">Custom</div>
+      <div class="pc-period">white-label available</div>
+      <div class="pc-setup">Bespoke onboarding</div>
+      <ul class="pc-feats">
+        <li>Everything in Brand</li>
+        <li>White-label for resale</li>
+        <li>Dedicated account manager</li>
+        <li>50+ custom prompt set</li>
+        <li>Quarterly playbook delivery</li>
+        <li>Influencer roster coverage</li>
+      </ul>
+      <a href="#contact" class="btn-dk">Talk to us</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="slabel">// Questions</div>
+  <h2>Things people ask us.</h2>
+  <div class="faq-list">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">What exactly is GEO and why does it matter now? <span class="faq-arr">›</span></div>
+      <div class="faq-a">GEO — Generative Engine Optimisation — is the practice of improving how your brand appears inside AI-generated answers. When someone asks ChatGPT "what's the best gym in Nairobi?" or Gemini "which solicitor should I use in London?", the models generate an answer from everything they've learned. GEO makes sure your brand is part of that answer.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can you guarantee my brand will appear in AI answers? <span class="faq-arr">›</span></div>
+      <div class="faq-a">No — and anyone who promises that is misleading you. Generative AI models are probabilistic. What we do is systematically improve every signal that influences model outputs — structured content, entity consistency, citation authority, schema markup — and track the improvement month over month. We promise measurable progress, not a guaranteed position.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do you measure AI visibility without scraping ChatGPT? <span class="faq-arr">›</span></div>
+      <div class="faq-a">We use official developer APIs — OpenAI, Google Gemini, and Perplexity — not the consumer interfaces. These give consistent, reproducible results and are designed for exactly this kind of structured testing. We run a fixed set of buyer prompts in a controlled environment and log every output. It's structured sampling, not scraping.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How long before I see results? <span class="faq-arr">›</span></div>
+      <div class="faq-a">SEO improvements typically show in 4–8 weeks. AEO (Google snippets and AI Overviews) in 4–12 weeks. GEO — LLM visibility — takes longer as models update on their own schedules. Expect meaningful signal after 60–90 days. That's why our Growth plan has a 3-month minimum.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Do you work with influencers and creators? <span class="faq-arr">›</span></div>
+      <div class="faq-a">Yes — this is a growing vertical. When a brand asks ChatGPT "who are the top sustainable fashion creators in the UK?" or "best fitness influencers in Nairobi?" — does your name appear? We run creator visibility audits and optimise for the exact prompts brands use when scouting talent. Same methodology, aimed at a person instead of a company.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Do you serve businesses in Kenya? <span class="faq-arr">›</span></div>
+      <div class="faq-a">Yes. We serve both the UK and Kenya with localised pricing, localised prompt sets, and relevant industry focus. For Kenya: tourism, fintech, FMCG, healthcare and Kenyan creators. The methodology is identical — the prompts and target publications are localised to each market.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="slabel">// Start today</div>
+  <h2>Find out if you're<br><em>in the answer.</em></h2>
+  <p>Free AI visibility audit. We'll show you exactly where you appear across ChatGPT, Google AI and Gemini — and where you don't. Results within 48 hours.</p>
+  <form class="cta-form" id="ctaForm" novalidate>
+    <input type="text"  name="name"    placeholder="Your name"       required autocomplete="name">
+    <input type="text"  name="company" placeholder="Company / brand" required autocomplete="organization">
+    <input type="email" name="email"   placeholder="your@email.com"  required autocomplete="email">
+    <button type="submit" id="ctaBtn">Get free audit</button>
+  </form>
+  <p class="cta-note" id="ctaNote">No commitment. No cost. Results within 48 hours.</p>
+</section>
+
+<footer>
+  <a href="#" class="f-logo">Ser<span>.</span>en</a>
+  <span class="f-tag">"Be the answer."</span>
+  <ul class="f-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="f-copy">© 2026 Seren. All rights reserved. London, UK &amp; Nairobi, Kenya.</div>
+</footer>
+
+<script>
+// ── CHANGE THIS to your n8n webhook URL ──
+const N8N_WEBHOOK_URL = "https://YOUR_N8N_DOMAIN/webhook/seren-lead";
+// ─────────────────────────────────────────
+
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+// Hamburger
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// Stars
+const sc = document.getElementById('stars');
+for (let i = 0; i < 130; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const sz = 1 + Math.random() * 2;
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;--d:${2+Math.random()*4}s;--delay:${-Math.random()*6}s;--op:${0.2+Math.random()*0.7}`;
+  sc.appendChild(s);
+}
+
+// Bubble observer
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.15 });
+document.querySelectorAll('.bubble').forEach(b => io.observe(b));
+
+// FAQ
+function toggleFaq(item) {
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// CTA Form → n8n
+document.getElementById('ctaForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const btn  = document.getElementById('ctaBtn');
+  const note = document.getElementById('ctaNote');
+  const name = form.name.value.trim();
+  const co   = form.company.value.trim();
+  const em   = form.email.value.trim();
+
+  if (!name || !co || !em || !em.includes('@')) {
+    note.textContent = 'Please fill in all fields with a valid email address.';
+    note.style.color = '#e74c3c';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  note.style.color = '';
+  note.textContent = 'Submitting your details…';
+
+  try {
+    const res = await fetch(N8N_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name, company: co, email: em,
+        source: 'seren-landing',
+        market: em.endsWith('.ke') ? 'Kenya' : 'UK',
+        page: window.location.href,
+        timestamp: new Date().toISOString()
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    btn.textContent = '✓ Request sent';
+    btn.style.background = '#2ecc71';
+    note.textContent = 'Thanks — check your inbox. We\'ll send your audit results within 48 hours.';
+    form.querySelectorAll('input').forEach(i => i.disabled = true);
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Try again';
+    note.style.color = '#e74c3c';
+    note.textContent = 'Something went wrong. Please refresh and try again.';
+  }
+});
+</script>
+</body>
+</html>
